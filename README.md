@@ -8,10 +8,10 @@ airflow: Airflow
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.airflow](https://galaxy.ansible.com/devops-toolbox.airflow)
+[https://galaxy.ansible.com/devopstoolbox.airflow](https://galaxy.ansible.com/devopstoolbox.airflow)
 
 ```bash
-ansible-galaxy install devops-toolbox.airflow
+ansible-galaxy install devopstoolbox.airflow
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: airflow is configured
       import_role:
-        name: devops-toolbox.airflow
+        name: devopstoolbox.airflow
       vars:
         airflow_packages_state: present
         airflow_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
