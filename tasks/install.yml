@@ -1,0 +1,27 @@
+---
+# Install airflow packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ airflow_packages_remove }}"
+    state: absent
+  become: true
+  when: airflow_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ airflow_packages_repos }}"
+    state: "{{ airflow_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ airflow_packages_prereq }}"
+    state: "{{ airflow_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ airflow_packages_install }}"
+    state: "{{ airflow_packages_state }}"
+  become: true

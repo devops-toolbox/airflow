@@ -1,0 +1,10 @@
+---
+# Template configuration files for airflow
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ airflow_templates_copy }}"
+  when: airflow_copy_templates

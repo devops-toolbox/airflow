@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+airflow_repos_create: "{{ _airflow_repos_create['all']
+  | union ( _airflow_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+airflow_repos_download: "{{ _airflow_repos_download['all']
+  | union ( _airflow_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+airflow_templates_copy: "{{ _airflow_templates_copy['all']
+  | union ( _airflow_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+airflow_services_enable: "{{ _airflow_services_enable['all']
+  | union ( _airflow_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+airflow_selinux_enable: "{{ _airflow_selinux_enable['all']
+  | union ( _airflow_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+airflow_packages_remove: "{{ _airflow_packages_remove['all']
+  | union ( _airflow_packages_remove[my_os]
+  | default([]) ) }}"
+airflow_packages_repos: "{{ _airflow_packages_repos['all']
+  | union ( _airflow_packages_repos[my_os]
+  | default([]) ) }}"
+airflow_packages_prereq: "{{ _airflow_packages_prereq['all']
+  | union ( _airflow_packages_prereq[my_os]
+  | default([]) ) }}"
+airflow_packages_install: "{{ _airflow_packages_install['all']
+  | union ( _airflow_packages_install[my_os]
+  | default([]) ) }}"
